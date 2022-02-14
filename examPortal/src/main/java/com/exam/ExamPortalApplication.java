@@ -30,31 +30,31 @@ public class ExamPortalApplication implements CommandLineRunner {
 		// TODO Auto-generated method stub
 		System.out.println("Starting code");
 		
-		User user = new User();
-		
-		user.setId(1L);
-		user.setFirstName("Rohit");
-		user.setLastName("kumar");
-		user.setUsername("rohit3888kumar");
-		user.setPassword("12345");
-		user.setEmail("test@gmail.com");
-		user.setImgUrl("default.png");
-		
-		Role role1 = new Role();
-		
-		role1.setRoleId(44L);
-		role1.setRoleName("ADMIN");
-		
-		Set<UserRole> userRolesSet = new HashSet<>();
-		UserRole userRole = new UserRole();
-		userRole.setUserRoleId(2L);
-		userRole.setRole(role1);
-		userRole.setUser(user);
-		
-		userRolesSet.add(userRole);
-		
-		User user1 = this.userService.createUser(user, userRolesSet);
-		System.out.println(user1.getUsername());
+//		User user = new User();
+//		
+//		user.setId(1L);
+//		user.setFirstName("Rohit");
+//		user.setLastName("kumar");
+//		user.setUsername("rohit3888kumar");
+//		user.setPassword("12345");
+//		user.setEmail("test@gmail.com");
+//		user.setImgUrl("default.png");
+//		
+//		Role role1 = new Role();
+//		
+//		role1.setRoleId(44L);
+//		role1.setRoleName("ADMIN");
+//		
+//		Set<UserRole> userRolesSet = new HashSet<>();
+//		UserRole userRole = new UserRole();
+//		userRole.setUserRoleId(2L);
+//		userRole.setRole(role1);
+//		userRole.setUser(user);
+//		
+//		userRolesSet.add(userRole);
+//		
+//		User user1 = this.userService.createUser(user, userRolesSet);
+//		System.out.println(user1.getUsername());
 		
 		
 	}
