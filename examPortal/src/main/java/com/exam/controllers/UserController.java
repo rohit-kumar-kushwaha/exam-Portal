@@ -22,7 +22,7 @@ import com.exam.service.UserService;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin
+@CrossOrigin("*")
 public class UserController {
 	
 	@Autowired
