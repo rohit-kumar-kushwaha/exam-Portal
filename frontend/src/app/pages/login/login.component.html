@@ -11,26 +11,30 @@
 
                     <h1 class="text-center">Registration Here !!</h1>
 
-                    <!-- {{user | json}} -->
+                    {{loginData | json}}
 
-                    <form>
+                    <form (ngSubmit)="formSubmit()">
 
                         <!-- username field -->
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Username</mat-label>
-                            <input name="username" matInput placeholder="Enter here" required />
+                            <input 
+                                [(ngModel)]="loginData.username"
+                                name="username" matInput placeholder="Enter here" required />
                             <mat-hint>Valid username</mat-hint>
                         </mat-form-field>
 
                         <!-- password field -->
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Password</mat-label>
-                            <input type="password" name="password" matInput placeholder="Enter here" required />
+                            <input
+                                [(ngModel)]="loginData.password" 
+                                type="password" name="password" matInput placeholder="Enter here" required />
                         </mat-form-field>
 
                         <div class="container text-center">
-                            <button type="submit" mat-raised-button color="primary">Register</button>
-                            <button type="reset" class="ml10" mat-raised-button color="accent">Clear</button>
+                            <button type="submit" mat-raised-button color="primary">Login</button>
+                            <button type="reset" class="ml10" mat-raised-button color="accent">Reset</button>
                         </div>
 
                     </form>
