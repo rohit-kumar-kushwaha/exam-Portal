@@ -49,9 +49,9 @@ public class UserController {
 	public User createUser(@RequestBody User user) throws Exception {
 		
 		Set<UserRole> roles = new HashSet<>();
-		Long uid =  this.userService.totalUser();
-		uid++;
-		user.setId(uid);
+//		Long uid =  this.userService.totalUser();
+//		uid++;
+//		user.setId(uid);
 		
 		// encoding password with bcryptpasswordencoder
 		user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
@@ -64,7 +64,7 @@ public class UserController {
 		UserRole userRole = new UserRole();
 		userRole.setUser(user);
 		userRole.setRole(role);
-		userRole.setUserRoleId(++uid);
+		//userRole.setUserRoleId(++uid);
 		
 		roles.add(userRole);
 		
