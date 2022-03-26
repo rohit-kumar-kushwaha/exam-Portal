@@ -20,6 +20,7 @@ import com.exam.config.JwtUtil;
 import com.exam.entities.JwtRequest;
 import com.exam.entities.JwtResponse;
 import com.exam.entities.User;
+import com.exam.helper.UserNotFoundException;
 import com.exam.service.impl.UserDetailsServiceImpl;
 
 @RestController
@@ -44,7 +45,7 @@ public class AuthenticateController {
 			
 			authenticate(jwtRequest.getUsername(), jwtRequest.getPassword());
 			
-		} catch (UsernameNotFoundException e) {
+		} catch (UserNotFoundException e) {
 			e.printStackTrace();
 			throw new Exception("User not found !!");
 		}
