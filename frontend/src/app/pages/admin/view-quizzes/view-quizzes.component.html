@@ -13,9 +13,11 @@
         <button class="ml20" mat-stroked-button color="accent">No. of Questions: {{q.numberOfQuestions}}</button>
         <button class="ml20" mat-flat-button color="accent">Update</button>
         <button class="ml20" mat-flat-button color="accent">Quiz Attempts</button>
+        <mat-slide-toggle class="ml20">Active</mat-slide-toggle>
+
     </mat-card-actions>
 </mat-card>
 
 <div class="container text-center">
-    <button class="mt20" mat-raised-button color="accent">Add New Quiz</button>
+    <button class="mt20" mat-raised-button color="accent" routerLink="/admin/add-quiz">Add New Quiz</button>
 </div>
