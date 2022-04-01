@@ -30,6 +30,7 @@ export class ViewQuizzesComponent implements OnInit {
     this._quiz.quizzes().subscribe(
       (data:any)=>{
         this.quizzes = data;
+        //this.quizzes.sort();
         console.log(this.quizzes);
       },
       (error)=>{
@@ -38,6 +39,29 @@ export class ViewQuizzesComponent implements OnInit {
       }
     )
 
+  }
+
+  deleteQuiz(qid:any) {
+    //alert(qid);
+    Swal.fire({
+      icon: 'info',
+      title: "Are you sure ?",
+      confirmButtonText: 'Delete',
+      showCancelButton: true
+    }).then((result)=>{
+      if(result.isConfirmed) {
+        // delete
+        this._quiz.deleteQuiz(qid).subscribe(
+          (data:any)=>{
+            this.quizzes = this.quizzes.filter((quiz)=>quiz.qid != qid);
+            Swal.fire("Success","Quiz Deleted","success");
+          },
+          (error)=>{
+            Swal.fire('Error !','Error in deleting quiz !', 'error');
+          }
+        )
+      }
+    });
   }
 
 
