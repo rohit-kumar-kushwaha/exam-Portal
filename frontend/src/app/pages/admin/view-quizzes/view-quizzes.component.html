@@ -11,7 +11,7 @@
         <button mat-flat-button color="accent">View All Question</button>
         <button class="ml20" mat-stroked-button color="accent">Max Marks: {{q.maxMarks}}</button>
         <button class="ml20" mat-stroked-button color="accent">No. of Questions: {{q.numberOfQuestions}}</button>
-        <button class="ml20" mat-flat-button color="accent">Update</button>
+        <button [routerLink]="'/admin/quiz/'+q.qid" class="ml20" mat-flat-button color="accent">Update</button>
         <button class="ml20" mat-flat-button color="accent">Quiz Attempts</button>
         <!-- <mat-slide-toggle class="ml20">Active</mat-slide-toggle> -->
         <button class="ml20" mat-flat-button color="warn" (click)="deleteQuiz(q.qid)">Delete</button>

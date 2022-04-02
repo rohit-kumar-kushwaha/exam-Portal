@@ -24,22 +24,23 @@
         Register
     </a>
 
+
+    <a 
+        (click)="logout()"
+        *ngIf="isLoggedIn"
+        mat-icon-button 
+        class="example-icon favorite-icon ml20 " 
+        aria-label="Example icon-button with heart icon">
+        Logout
+    </a>
+
     <a 
         *ngIf="isLoggedIn"
         routerLink="/admin/profile"
         mat-icon-button 
         class="example-icon favorite-icon ml20 mr20" 
         aria-label="Example icon-button with heart icon">
-        {{login.getUser().username}}
-    </a>
-
-    <a 
-        (click)="logout()"
-        *ngIf="isLoggedIn"
-        mat-icon-button 
-        class="example-icon favorite-icon ml20 mr20" 
-        aria-label="Example icon-button with heart icon">
-        Logout
+        {{login.getUser().firstName}}
     </a>
     
 </mat-toolbar>
