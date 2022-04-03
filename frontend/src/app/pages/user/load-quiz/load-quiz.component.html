@@ -1,6 +1,6 @@
 <div class="bootstrap-wrapper">
     <div class="container-fluid">
-        <mat-card>
+        <mat-card >
             <h1>Available Quizzes</h1>
         </mat-card>
         <div class="row mt20" *ngIf="quizzes">
@@ -39,6 +39,15 @@
                     
                 </mat-card>
 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" *ngIf="quizzes.length==0">
+                <mat-card>
+                    <mat-card-content>
+                        <h1 style="color: red;">No data in this category</h1>
+                    </mat-card-content>
+                </mat-card>
             </div>
         </div>
     </div>
