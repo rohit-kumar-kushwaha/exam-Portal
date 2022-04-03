@@ -17,8 +17,8 @@ export class UpdateQuizComponent implements OnInit {
 
   categories=[
     {
-      cid: 23,
-      title: 'Programming'
+      cid: '',
+      title: ''
     }
   ]
 
