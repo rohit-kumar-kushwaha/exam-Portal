@@ -11,30 +11,30 @@ import javax.persistence.Table;
 import org.hibernate.annotations.ManyToAny;
 
 @Entity
-@Table(name = "user_role")
-public class UserRole {
+@Table(name = "user_group")
+public class UserGroup {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long userRoleId;
+	private Long userGroupId;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private User user;
 	
 	@ManyToOne
-	private Role role;
+	private Group group;
 
-	public UserRole() {
+	public UserGroup() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Long getUserRoleId() {
-		return userRoleId;
+	public Long getUserGroupId() {
+		return userGroupId;
 	}
 
-	public void setUserRoleId(Long userRoleId) {
-		this.userRoleId = userRoleId;
+	public void setUserGroupId(Long userGroupId) {
+		this.userGroupId = userGroupId;
 	}
 
 	public User getUser() {
@@ -45,12 +45,12 @@ public class UserRole {
 		this.user = user;
 	}
 
-	public Role getRole() {
-		return role;
+	public Group getGroup() {
+		return group;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public void setGroup(Group group) {
+		this.group = group;
 	}
 	
 	

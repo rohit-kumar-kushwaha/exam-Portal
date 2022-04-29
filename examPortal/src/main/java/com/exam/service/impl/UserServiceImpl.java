@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.exam.entities.User;
-import com.exam.entities.UserRole;
+import com.exam.entities.UserGroup;
 import com.exam.helper.UserFoundException;
 import com.exam.helper.UserNotFoundException;
-import com.exam.repository.RoleRepository;
+import com.exam.repository.GroupRepository;
 import com.exam.repository.UserRepository;
 import com.exam.service.UserService;
 
@@ -20,13 +20,11 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Autowired
-	private RoleRepository roleRepository;
 	
 	
 	// creating user
 	@Override
-	public User createUser(User user, Set<UserRole> userRoles) throws Exception {
+	public User createUser(User user) throws Exception {
 		
 		User local = this.userRepository.findByUsername(user.getUsername());
 		if(local != null) {
@@ -35,11 +33,6 @@ public class UserServiceImpl implements UserService {
 		}
 		else {
 			// user create
-			for(UserRole ur : userRoles) {
-				roleRepository.save(ur.getRole());
-			}
-			
-			user.getUserRole().addAll(userRoles);
 			local = this.userRepository.save(user);
 		}
 		

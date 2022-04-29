@@ -9,9 +9,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.exam.entities.Role;
+import com.exam.entities.Group;
 import com.exam.entities.User;
-import com.exam.entities.UserRole;
+import com.exam.entities.UserGroup;
 import com.exam.service.UserService;
 
 @SpringBootApplication

@@ -34,33 +34,40 @@ public class User implements UserDetails {
 	private String about;
 	private boolean enabled = true;
 	private String imgUrl;
+	private String role;
 	
 	
 	//user have many roles
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
 	@JsonIgnore
-	private Set<UserRole> userRole = new HashSet<>();
+	private Set<UserGroup> userGroup = new HashSet<>();
 	
 	
 	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	public String getImgUrl() {
 		return imgUrl;
 	}
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-	public Set<UserRole> getUserRole() {
-		return userRole;
+	public Set<UserGroup> getUserGroup() {
+		return userGroup;
 	}
-	public void setUserRole(Set<UserRole> userRole) {
-		this.userRole = userRole;
+	public void setUserGroup(Set<UserGroup> userGroup) {
+		this.userGroup = userGroup;
 	}
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public User(Long id, String username, String password, String firstName, String lastName, String email,
-			String phone, String about, boolean enabled) {
+			String phone, String about, boolean enabled, String role) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -71,6 +78,7 @@ public class User implements UserDetails {
 		this.phone = phone;
 		this.about = about;
 		this.enabled = enabled;
+		this.role = role;
 	}
 	public Long getId() {
 		return id;
@@ -133,10 +141,10 @@ public class User implements UserDetails {
 		
 		Set<Authority> set = new HashSet<>();
 		
-		this.userRole.forEach(userRole -> {
-			set.add(new Authority(userRole.getRole().getRoleName()));
-		});
-		
+//		this.userRole.forEach(userRole -> {
+//			set.add(new Authority(userRole.getRole().getRoleName()));
+//		});
+		set.add(new Authority(role));
 		return set;
 	}
 	@Override

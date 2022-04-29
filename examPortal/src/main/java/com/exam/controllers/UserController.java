@@ -18,11 +18,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.exam.entities.Role;
+import com.exam.entities.Group;
 import com.exam.entities.User;
-import com.exam.entities.UserRole;
+import com.exam.entities.UserGroup;
 import com.exam.helper.UserFoundException;
 import com.exam.repository.UserRepository;
+import com.exam.service.GroupService;
 import com.exam.service.UserService;
 
 @RestController
@@ -32,6 +33,9 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired 
+	private GroupService groupService;
 	
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -48,7 +52,7 @@ public class UserController {
 	@PostMapping("/")
 	public User createUser(@RequestBody User user) throws Exception {
 		
-		Set<UserRole> roles = new HashSet<>();
+		//Set<UserGroup> roles = new HashSet<>();
 //		Long uid =  this.userService.totalUser();
 //		uid++;
 //		user.setId(uid);
@@ -57,18 +61,18 @@ public class UserController {
 		user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
 		
 		
-		Role role = new Role();
-		role.setRoleId(45L);
-		role.setRoleName("NORMAL");
+		//Group role = new Group();
+		//role.setRoleId(45L);
+		//role.setRoleName("NORMAL");
 		
-		UserRole userRole = new UserRole();
-		userRole.setUser(user);
-		userRole.setRole(role);
+		//UserGroup userRole = new UserGroup();
+		//userRole.setUser(user);
+		//.setRole(role);
 		//userRole.setUserRoleId(++uid);
 		
-		roles.add(userRole);
+		//roles.add(userRole);
 		
-		return this.userService.createUser(user, roles);
+		return this.userService.createUser(user);
 		
 	}
 	
@@ -98,5 +102,9 @@ public class UserController {
 	public ResponseEntity<?> exceptionHandler(UserFoundException ex) {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
+	
+	
+	
+	
 
 }
