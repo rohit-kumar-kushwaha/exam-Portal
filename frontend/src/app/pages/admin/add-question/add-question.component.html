@@ -11,7 +11,7 @@
                 <mat-card-content>
                     <form (submit)="questionAddFormSubmit()" class="mt20">
                         <!-- content field -->
-                        <!-- <mat-form-field class="w100" appearance="fill">
+                        <mat-form-field class="w100" appearance="fill">
                             <mat-label>Write question content</mat-label>
                             <textarea 
                                 [(ngModel)]="question.content"
@@ -21,15 +21,15 @@
                                 matInput 
                                 placeholder="Enter here">
                             </textarea>
-                        </mat-form-field> -->
+                        </mat-form-field>
 
-                        <ckeditor 
+                        <!-- <ckeditor 
                             [editor]="Editor"
                             name="content"
                             [(ngModel)]="question.content"
                             required
                             >
-                        </ckeditor>
+                        </ckeditor> -->
 
                         <!-- options field -->
                         <div class="row mt20" >

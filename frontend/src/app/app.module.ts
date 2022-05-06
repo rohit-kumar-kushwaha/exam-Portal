@@ -36,7 +36,7 @@ import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.compo
 import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+// import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { SidebarComponent as UserSidebar } from './pages/user/sidebar/sidebar.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
@@ -45,6 +45,8 @@ import { AddGroupComponent } from './pages/admin/add-group/add-group.component';
 import { JoinGroupComponent } from './pages/user/join-group/join-group.component';
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -92,8 +94,13 @@ import {MatRadioModule} from '@angular/material/radio';
     MatTableModule,
     MatSlideToggleModule,
     MatSelectModule,
-    CKEditorModule,
-    MatRadioModule
+    // CKEditorModule,
+    MatRadioModule,
+    MatProgressSpinnerModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground: true,
+    }),
   ],
   providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]
