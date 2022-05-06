@@ -54,9 +54,14 @@ public class QuestionControllers {
 		Quiz quiz = this.quizService.getQuiz(qid);
 		Set<Question> questions = quiz.getQuestions();
 		List list =  new ArrayList(questions);
+		System.out.println("LIST SIZE : "+list.size());
+		
 		if(list.size()>Integer.parseInt(quiz.getNumberOfQuestions())) {
-			list.subList(0, Integer.parseInt(quiz.getNumberOfQuestions()+1));
+			
+			list = list.subList(0, Integer.parseInt(quiz.getNumberOfQuestions()));
+			System.out.println("NUMBER OF QUESTION : "+Integer.parseInt(quiz.getNumberOfQuestions()));
 		}
+		
 		Collections.shuffle(list);
 		
 		return ResponseEntity.ok(list);

@@ -15,16 +15,6 @@ export class ViewCategoriesComponent implements OnInit {
       title: 'Programming',
       description: 'This is testing category'
     },
-    {
-      cid: 23,
-      title: 'Programming',
-      description: 'This is testing category'
-    },
-    {
-      cid: 23,
-      title: 'Programming',
-      description: 'This is testing category'
-    },
   ]
 
   constructor(private _categories:CategoryService) { }

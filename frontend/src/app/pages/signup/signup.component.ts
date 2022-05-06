@@ -13,13 +13,23 @@ export class SignupComponent implements OnInit {
 
   constructor(private userService:UserService, private snack:MatSnackBar) { }
 
+  public roles = [
+    {
+      role:'ADMIN'
+    },
+    {
+      role: 'NORMAL'
+    }
+  ]
+
   public user={
     username: '',
     password: '',
     firstName: '',
     lastName: '',
     email: '',
-    phone: ''
+    phone: '',
+    role: '',
   };
 
   ngOnInit(): void {}

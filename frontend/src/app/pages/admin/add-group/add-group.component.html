@@ -1,0 +1,42 @@
+<mat-card>
+    <h1>Add New Category</h1>
+    <mat-card-content>
+        <!-- {{group | json}} -->
+        <div class="bootstrap-wrapper">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <form (ngSubmit)="formSubmit()">
+
+                        <mat-form-field class="w100" appearance="outline">
+                            <mat-label>Group Name</mat-label>
+                            <input 
+                                required
+                                autofocus
+                                [(ngModel)]="group.groupName"
+                                type="text" 
+                                name="Title" 
+                                matInput 
+                                placeholder="Enter here">
+                        </mat-form-field>
+
+                        <mat-form-field class="w100" appearance="outline">
+                            <mat-label>Description</mat-label>
+                            <textarea 
+                                [(ngModel)]="group.description"
+                                name="description" 
+                                placeholder="Enter Category Description" 
+                                matInput 
+                                rows="10">
+                            </textarea>
+                        </mat-form-field>
+
+                        <div class="container text-center mt15">
+                            <button mat-raised-button color="accent">Add</button>
+                        </div>
+            
+                    </form>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

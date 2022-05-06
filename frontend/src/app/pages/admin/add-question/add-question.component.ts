@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionService } from 'src/app/services/question.service';
 import Swal from 'sweetalert2';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -32,7 +32,8 @@ export class AddQuestionComponent implements OnInit {
 
   constructor(
     private _route:ActivatedRoute,
-    private _question:QuestionService
+    private _question:QuestionService,
+    private _router:Router
   ) { }
 
   ngOnInit(): void {
@@ -65,6 +66,7 @@ export class AddQuestionComponent implements OnInit {
     this._question.addQuestion(this.question).subscribe(
       (data:any)=>{
         Swal.fire("Success","Question Added. Add another one","success");
+        // this._router.navigate(['/admin/add-question/'+this.qId+'/'+this.qTitle]);
         this.question = {
           quiz: {
             qid: ''
@@ -79,6 +81,7 @@ export class AddQuestionComponent implements OnInit {
       },
       (error)=>{
         Swal.fire("Error !!","Error in adding question","error");
+        console.log(error);
       }
     )
   }

@@ -42,6 +42,14 @@
                                 placeholder="Enter here" required />
                         </mat-form-field>
 
+                        <!-- Role field -->
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Role</mat-label>
+                            <mat-select  name="role" required [(ngModel)]="user.role">
+                              <mat-option *ngFor="let r of roles" [value]="r.role">{{r.role}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
                         <!-- phone field -->
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Phone Number</mat-label>

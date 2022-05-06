@@ -70,6 +70,7 @@ export class LoginService {
     }
   }
 
+
   //get user role
   public getUserRole() {
     let user = this.getUser();

@@ -39,6 +39,12 @@ import { UpdateQuestionComponent } from './pages/admin/update-question/update-qu
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { SidebarComponent as UserSidebar } from './pages/user/sidebar/sidebar.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { ViewGroupsComponent } from './pages/admin/view-groups/view-groups.component';
+import { AddGroupComponent } from './pages/admin/add-group/add-group.component';
+import { JoinGroupComponent } from './pages/user/join-group/join-group.component';
+import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -62,7 +68,12 @@ import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
     AddQuestionComponent,
     UpdateQuestionComponent,
     UserSidebar,
-    LoadQuizComponent
+    LoadQuizComponent,
+    InstructionsComponent,
+    ViewGroupsComponent,
+    AddGroupComponent,
+    JoinGroupComponent,
+    StartQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +92,8 @@ import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
     MatTableModule,
     MatSlideToggleModule,
     MatSelectModule,
-    CKEditorModule
+    CKEditorModule,
+    MatRadioModule
   ],
   providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]
