@@ -14,9 +14,7 @@ export class StartQuizComponent implements OnInit {
   qid: any;
   questions: any;
 
-  marksGot = 0;
-  correctAnswers = 0;
-  attempted = 0;
+  result: any;
 
   isSubmit = false;
 
@@ -40,15 +38,15 @@ export class StartQuizComponent implements OnInit {
   loadQuestions() {
     this._question.getQuestionsOfQuizForTest(this.qid).subscribe(
       (data: any) => {
-        // console.log(data);
+        console.log(data);
         this.questions = data;
 
         this.timer = this.questions.length * 1 * 60;
 
-        this.questions.forEach((q: any) => {
-          q['givenAnswer'] = '';
+        // this.questions.forEach((q: any) => {
+        //   q['givenAnswer'] = '';
 
-        });
+        // });
         this.startTimer();
       },
       (error) => {
@@ -78,9 +76,9 @@ export class StartQuizComponent implements OnInit {
         // console.log(this.questions);
         this.evaluateQuiz();
 
-        console.log("Correct answer : " + this.correctAnswers);
-        console.log("Marks Got : " + this.marksGot);
-        console.log("Attempted Question : " + this.attempted);
+        // console.log("Correct answer : " + this.correctAnswers);
+        // console.log("Marks Got : " + this.marksGot);
+        // console.log("Attempted Question : " + this.attempted);
 
       }
     })
@@ -89,17 +87,28 @@ export class StartQuizComponent implements OnInit {
   evaluateQuiz() {
 
     this.isSubmit = true;
-    let marksSingle = this.questions[0].quiz.maxMarks / this.questions.length;
-    this.questions.forEach((q: any) => {
-      if (q.givenAnswer == q.answer) {
-        this.correctAnswers++;
-        this.marksGot += marksSingle;
-      }
-      if (q.givenAnswer.trim() != '') {
-        this.attempted++;
-      }
+    // let marksSingle = this.questions[0].quiz.maxMarks / this.questions.length;
+    // this.questions.forEach((q: any) => {
+    //   if (q.givenAnswer == q.answer) {
+    //     this.correctAnswers++;
+    //     this.marksGot += marksSingle;
+    //   }
+    //   if (q.givenAnswer.trim() != '') {
+    //     this.attempted++;
+    //   }
 
-    })
+    // })
+
+    this._question.evaluateQuiz(this.questions).subscribe(
+      (data)=>{
+        console.log(data);
+        this.result = data;
+
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
   }
 
   startTimer() {
@@ -119,6 +128,10 @@ export class StartQuizComponent implements OnInit {
     let minute = Math.floor((this.timer - hour * 3600) / 60);
     let second = this.timer - minute * 60;
     return `${hour} hr : ${minute} min : ${second} sec`;
+  }
+
+  printPage() {
+    window.print();
   }
 
 }

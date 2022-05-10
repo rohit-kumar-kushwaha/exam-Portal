@@ -35,4 +35,9 @@ export class QuestionService {
   public getSingleQuestion(questionId:any) {
     return this._http.get(`${baseUrl}/question/${questionId}`);
   }
+
+  // evaluate quiz
+  public evaluateQuiz(question:any) {
+    return this._http.post(`${baseUrl}/question/evaluate-quiz`, question);
+  }
 }

@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 public class Question {
@@ -19,9 +23,24 @@ public class Question {
 	private String option2;
 	private String option3;
 	private String option4;
+	
 	private String answer;
 	
+	//don't use this filed in database
+	@Transient
+	private String givenAnswer;
 	
+	
+	public String getGivenAnswer() {
+		return givenAnswer;
+	}
+
+
+	public void setGivenAnswer(String givenAnswer) {
+		this.givenAnswer = givenAnswer;
+	}
+
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Quiz quiz;
 
@@ -106,7 +125,7 @@ public class Question {
 		return answer;
 	}
 
-
+	
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
