@@ -47,6 +47,8 @@ import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component
 import {MatRadioModule} from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
+import { WelcomUserComponent } from './pages/user/welcom-user/welcom-user.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,9 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
     ViewGroupsComponent,
     AddGroupComponent,
     JoinGroupComponent,
-    StartQuizComponent
+    StartQuizComponent,
+    UpdateProfileComponent,
+    WelcomUserComponent
   ],
   imports: [
     BrowserModule,

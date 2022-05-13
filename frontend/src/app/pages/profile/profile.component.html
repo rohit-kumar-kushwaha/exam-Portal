@@ -51,7 +51,8 @@
 
     </mat-card-content>
     <mat-card-actions class="text-center">
-        <button mat-raised-button color="primary">UPDATE</button>
+        <button *ngIf="login.getUser().role=='ADMIN'" routerLink="/admin/update-profile" mat-raised-button color="primary">UPDATE</button>
+        <button *ngIf="login.getUser().role=='NORMAL'" routerLink="/user-dashboard/user-update-profile" mat-raised-button color="primary">UPDATE</button>
         <!-- <button mat-raised-button color="accent">SHARE</button> -->
       </mat-card-actions>
 </mat-card>

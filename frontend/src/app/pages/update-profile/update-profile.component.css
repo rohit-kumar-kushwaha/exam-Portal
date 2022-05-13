@@ -1,0 +1,18 @@
+.full-width {
+    width: 100%;
+}
+
+.profile-image{
+    max-width: 150px;
+    max-height: 150px;
+    border: 2px solid #ff4081;
+    border-radius: 50%;
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-btn {
+    margin-left: -50px;
+}
