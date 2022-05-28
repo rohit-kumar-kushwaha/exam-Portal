@@ -49,6 +49,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 import { WelcomUserComponent } from './pages/user/welcom-user/welcom-user.component';
+import { MarksDetailsComponent } from './pages/user/marks-details/marks-details.component';
+import { AttemptedQuizComponent } from './pages/admin/attempted-quiz/attempted-quiz.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +81,9 @@ import { WelcomUserComponent } from './pages/user/welcom-user/welcom-user.compon
     JoinGroupComponent,
     StartQuizComponent,
     UpdateProfileComponent,
-    WelcomUserComponent
+    WelcomUserComponent,
+    MarksDetailsComponent,
+    AttemptedQuizComponent
   ],
   imports: [
     BrowserModule,

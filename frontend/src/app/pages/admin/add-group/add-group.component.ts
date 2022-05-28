@@ -37,6 +37,7 @@ export class AddGroupComponent implements OnInit {
       (data:any)=>{
         this.group.groupName = '';
         this.group.description = '';
+        console.log(data);
         Swal.fire('Success !!', 'Group secret key is '+data.secretKey+''+data.groupId, 'success')
       },
       (error)=>{

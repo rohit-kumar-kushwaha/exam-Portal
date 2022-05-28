@@ -2,15 +2,21 @@
     <h1>All Groups</h1>
     <mat-list>
         <mat-list-item *ngFor="let c of groups">
-            <mat-icon mat-list-icon>category</mat-icon>
-            <div mat-line>{{c.groupName}}</div>
+            <mat-icon mat-list-icon>group</mat-icon>
+            <div mat-line><b>{{c.groupName}}</b></div>
             <div mat-line>{{c.description}}</div>
-            <mat-divider></mat-divider>
-
         </mat-list-item>
     </mat-list>
+    <mat-card-actions class="ml60">
+        <button  mat-stroked-button color="primary">Add Quiz</button>
+        <button class="ml20"  mat-stroked-button color="primary">View Quiz</button>
+        <button class="ml20"  mat-stroked-button color="primary">View Group Member</button>
+        <button class="ml20"  mat-stroked-button color="primary">Update</button>
+        <button class="ml20"  mat-flat-button color="accent">Delete</button>
+    </mat-card-actions>
+    <mat-divider></mat-divider>
     <div class="container text-center mt20">
-        <button mat-raised-button color="accent" routerLink="/admin/add-category">Create New Group</button>
+        <button mat-raised-button color="accent" routerLink="/admin/add-group">Create New Group</button>
 
     </div>
 </mat-card>

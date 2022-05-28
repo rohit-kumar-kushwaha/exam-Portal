@@ -65,11 +65,9 @@ export class AddQuestionComponent implements OnInit {
     // form submit
     this._question.addQuestion(this.question).subscribe(
       (data:any)=>{
-        Swal.fire("Success","Question Added. Add another one","success");
-        // this._router.navigate(['/admin/add-question/'+this.qId+'/'+this.qTitle]);
         this.question = {
           quiz: {
-            qid: ''
+            qid: this.qId
           },
           content: '',
           option1: '',
@@ -78,6 +76,10 @@ export class AddQuestionComponent implements OnInit {
           option4: '',
           answer: ''
         };
+        Swal.fire("Success","Question Added. Add another one","success");
+        // this._router.navigate(['admin/add-question/'+this.qId]);
+        // this._router.navigate(['/admin/add-question/'+this.qId+'/'+this.qTitle]);
+        
       },
       (error)=>{
         Swal.fire("Error !!","Error in adding question","error");

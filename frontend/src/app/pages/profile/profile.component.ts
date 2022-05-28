@@ -9,18 +9,22 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class ProfileComponent implements OnInit {
 
-  public user = null;
+  public user:any;
 
-  constructor(public login:LoginService) { }
+  constructor(public _login:LoginService) { }
 
   ngOnInit(): void {
 
-    this.user = this.login.getUser();
-    // this.login.getCurrentUser().subscribe(
-    //   (user:any)=>{
-    //     this.user = user;
-    //   }
-    // )
+    // this.user = this.login.getCurrentUser();
+    this._login.getCurrentUser().subscribe(
+      (user:any)=>{
+        this.user = user;
+        console.log(user);
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
   }
 
 }

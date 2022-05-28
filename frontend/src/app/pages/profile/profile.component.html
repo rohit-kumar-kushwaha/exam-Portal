@@ -11,7 +11,7 @@
                         alt=""
                         class="profile-image">
 
-                    <h1 class="mt20">{{login.getUser().firstName}} {{login.getUser().lastName}} </h1>
+                    <h1 class="mt20">{{user.firstName}} {{user.lastName}} </h1>
                 </div>
                 <div class="row">
                     <div class="col-md-10 offset-md-1">
@@ -19,28 +19,42 @@
                         <table class="table text-center">
                             <tr>
                                 <td>Username</td>
-                                <td>{{login.getUser().username}}</td>
+                                <td>{{user.username}}</td>
                             </tr>
                             <tr>
                                 <td>User ID</td>
-                                <td>{{login.getUser().id}}</td>
+                                <td>{{user.id}}</td>
                             </tr>
-                            <tr *ngIf="login.getUser().phone">
+                            <!-- <tr *ngIf="login.getUser().phone"> -->
+                            <tr>
                                 <td>Phone</td>
-                                <td>{{login.getUser().phone}}</td>
+                                <td>{{user.phone}}</td>
                             </tr>
                             <tr>
                                 <td>Email</td>
-                                <td>{{login.getUser().email}}</td>
+                                <td>{{user.email}}</td>
                             </tr>
                             <tr>
                                 <td>Role</td>
-                                <td>{{login.getUser().authorities[0].authority}}</td>
+                                <td>{{user.role}}</td>
                             </tr>
                             <tr>
                                 <td>status</td>
-                                <td>{{login.getUser().enabled?"ACTIVE":"NOT ACTIVE"}}</td>
+                                <td>{{user.enabled?"ACTIVE":"NOT ACTIVE"}}</td>
                             </tr>
+                            <tr>
+                                <td>Course</td>
+                                <td>{{user.course}}</td>
+                            </tr>
+                            <tr>
+                                <td>Course</td>
+                                <td>{{user.session}}</td>
+                            </tr>
+                            <tr>
+                                <td>About</td>
+                                <td>{{user.about}}</td>
+                            </tr>
+
 
 
                         </table>
@@ -51,8 +65,8 @@
 
     </mat-card-content>
     <mat-card-actions class="text-center">
-        <button *ngIf="login.getUser().role=='ADMIN'" routerLink="/admin/update-profile" mat-raised-button color="primary">UPDATE</button>
-        <button *ngIf="login.getUser().role=='NORMAL'" routerLink="/user-dashboard/user-update-profile" mat-raised-button color="primary">UPDATE</button>
+        <button *ngIf="user.role=='ADMIN'" routerLink="/admin/update-profile" mat-raised-button color="primary">UPDATE</button>
+        <button *ngIf="user.role=='NORMAL'" routerLink="/user-dashboard/user-update-profile" mat-raised-button color="primary">UPDATE</button>
         <!-- <button mat-raised-button color="accent">SHARE</button> -->
       </mat-card-actions>
 </mat-card>

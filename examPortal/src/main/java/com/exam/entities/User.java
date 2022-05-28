@@ -2,6 +2,7 @@ package com.exam.entities;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,8 +13,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -36,13 +39,31 @@ public class User implements UserDetails {
 	private String imgUrl;
 	private String role;
 	
+	private String course;
+	private String session;
+	
+	
 	
 	//user have many roles
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
 	@JsonIgnore
 	private Set<UserGroup> userGroup = new HashSet<>();
 	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "users")
+	private Set<Marks> marks = new HashSet<Marks>();
 	
+	public String getCourse() {
+		return course;
+	}
+	public void setCourse(String course) {
+		this.course = course;
+	}
+	public String getSession() {
+		return session;
+	}
+	public void setSession(String session) {
+		this.session = session;
+	}
 	
 	public String getRole() {
 		return role;
@@ -135,6 +156,8 @@ public class User implements UserDetails {
 		this.enabled = enabled;
 	}
 	
+	@Transient
+	@JsonIgnore
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
@@ -146,6 +169,9 @@ public class User implements UserDetails {
 //		});
 		set.add(new Authority(role));
 		return set;
+		
+//		SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(getRole());
+//		return List.of(simpleGrantedAuthority);
 	}
 	@Override
 	public boolean isAccountNonExpired() {

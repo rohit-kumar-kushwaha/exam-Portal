@@ -5,6 +5,7 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
 import { AddGroupComponent } from './pages/admin/add-group/add-group.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import { AttemptedQuizComponent } from './pages/admin/attempted-quiz/attempted-quiz.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
@@ -21,6 +22,7 @@ import { UpdateProfileComponent } from './pages/update-profile/update-profile.co
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { JoinGroupComponent } from './pages/user/join-group/join-group.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { MarksDetailsComponent } from './pages/user/marks-details/marks-details.component';
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { WelcomUserComponent } from './pages/user/welcom-user/welcom-user.component';
@@ -77,6 +79,11 @@ const routes: Routes = [
       {
         path: 'quizzes',
         component: ViewQuizzesComponent,
+
+      },
+      {
+        path: 'attempted-quiz/:qid',
+        component: AttemptedQuizComponent,
 
       },
       {
@@ -137,6 +144,11 @@ const routes: Routes = [
       {
         path: 'user-update-profile',
         component: UpdateProfileComponent,
+
+      },
+      {
+        path: 'attempted-quiz/:uid',
+        component: MarksDetailsComponent,
 
       },
       {
