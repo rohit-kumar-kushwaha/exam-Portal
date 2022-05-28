@@ -33,7 +33,8 @@ public class Group {
 	@JsonIgnore
 	private Set<UserGroup> userGroup = new HashSet<>();
 	
-	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "groups")
+	private Set<Quiz> quizzes = new HashSet<Quiz>();
 	
 	
 	

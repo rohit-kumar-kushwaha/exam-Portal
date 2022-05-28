@@ -31,6 +31,9 @@ public class Quiz {
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Category category;
 	
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Group groups;
+	
 	
 	@OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore
