@@ -21,7 +21,7 @@ public class UserGroup {
 	@ManyToOne(fetch = FetchType.EAGER)
 	private User user;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Group group;
 
 	public UserGroup() {

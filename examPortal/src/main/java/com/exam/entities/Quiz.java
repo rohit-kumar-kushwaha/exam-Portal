@@ -40,9 +40,22 @@ public class Quiz {
 	private Set<Question> questions = new HashSet<>();
 	
 	@OneToMany(mappedBy = "quizzes", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Set<Marks> marks = new HashSet<Marks>();
 	
 	
+	public Group getGroups() {
+		return groups;
+	}
+	public void setGroups(Group groups) {
+		this.groups = groups;
+	}
+	public Set<Marks> getMarks() {
+		return marks;
+	}
+	public void setMarks(Set<Marks> marks) {
+		this.marks = marks;
+	}
 	public Quiz() {
 		super();
 		// TODO Auto-generated constructor stub

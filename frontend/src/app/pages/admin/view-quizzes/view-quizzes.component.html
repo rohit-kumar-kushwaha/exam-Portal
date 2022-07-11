@@ -1,13 +1,13 @@
 <mat-card class="mt10 ml20" *ngFor="let q of quizzes">
-    <mat-card-header>
+    <mat-card-header *ngIf="q.category">
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{q.title}}</mat-card-title>
         <mat-card-subtitle>{{q.category.title}}</mat-card-subtitle>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content *ngIf="q.category">
         <p>{{q.description}}</p>
     </mat-card-content>
-    <mat-card-actions>
+    <mat-card-actions *ngIf="q.category">
         <button [routerLink]="'/admin/view-questions/'+q.qid+'/'+q.title" mat-flat-button color="accent">View All Question</button>
         <button class="ml20" mat-stroked-button color="accent">Max Marks: {{q.maxMarks}}</button>
         <button class="ml20" mat-stroked-button color="accent">No. of Questions: {{q.numberOfQuestions}}</button>

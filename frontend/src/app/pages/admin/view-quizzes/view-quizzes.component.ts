@@ -27,7 +27,7 @@ export class ViewQuizzesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this._quiz.quizzes().subscribe(
+    this._quiz.getQuizzesOfOnlyGroup().subscribe(
       (data:any)=>{
         this.quizzes = data;
         //this.quizzes.sort();

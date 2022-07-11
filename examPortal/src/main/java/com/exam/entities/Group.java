@@ -34,10 +34,17 @@ public class Group {
 	private Set<UserGroup> userGroup = new HashSet<>();
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "groups")
+	@JsonIgnore
 	private Set<Quiz> quizzes = new HashSet<Quiz>();
 	
 	
 	
+	public Set<Quiz> getQuizzes() {
+		return quizzes;
+	}
+	public void setQuizzes(Set<Quiz> quizzes) {
+		this.quizzes = quizzes;
+	}
 	public Set<UserGroup> getUserGroup() {
 		return userGroup;
 	}

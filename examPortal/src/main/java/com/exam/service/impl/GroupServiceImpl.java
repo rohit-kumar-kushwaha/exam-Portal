@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.exam.entities.Group;
+import com.exam.entities.User;
 import com.exam.repository.GroupRepository;
 import com.exam.repository.UserGroupRepository;
 import com.exam.service.GroupService;
@@ -21,6 +22,9 @@ public class GroupServiceImpl implements GroupService{
 	
 	@Autowired
 	private UserGroupRepository userGroupRepository;
+	
+//	@Autowired
+//	private GroupService groupService;
 
 	@Override
 	public Group createGroup(Group group) {
@@ -47,6 +51,23 @@ public class GroupServiceImpl implements GroupService{
 	public Set<Group> getGroup(Long userId) {
 		return new LinkedHashSet<Group>(this.groupRepository.findByGroupByUserId(userId));
 	}
+
+	@Override
+	public Set<User> getUserByGroup(Long groupId) {
+		return this.groupRepository.findByUserByGroupId(groupId);
+	}
+
+	@Override
+	public void deleteGroup(Long groupId) {
+		// TODO Auto-generated method stub
+		this.groupRepository.deleteById(groupId);
+		
+	}
+
+//	@Override
+//	public Set<User> getUserByGroup(Long groupId) {
+//		return this.groupRepository.findByUserByGroupId(groupId);
+//	}
 
 
 

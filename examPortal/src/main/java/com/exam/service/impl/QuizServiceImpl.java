@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.exam.entities.Category;
+import com.exam.entities.Group;
 import com.exam.entities.Quiz;
 import com.exam.repository.QuizRepository;
 import com.exam.service.QuizService;
@@ -65,6 +66,17 @@ public class QuizServiceImpl implements QuizService {
 	@Override
 	public List<Quiz> getActiveQuizzesOfCategory(Category category) {
 		return this.quizRepository.findByCategoryAndActive(category, true);
+	}
+	
+	// get active quizzes of group
+		@Override
+		public List<Quiz> getActiveQuizzesOfGroup(Group group) {
+			return this.quizRepository.findByGroupsAndActive(group, true);
+		}
+
+	@Override
+	public List<Quiz> getQuizzesOfGroup(Group group) {
+		return this.quizRepository.findByGroups(group);
 	}
 	
 	

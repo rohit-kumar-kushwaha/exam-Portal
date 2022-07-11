@@ -1,6 +1,7 @@
 package com.exam.controllers;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,8 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.exam.entities.Category;
+import com.exam.entities.Group;
 import com.exam.entities.Quiz;
 import com.exam.service.QuizService;
+
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/quiz")
@@ -67,15 +72,60 @@ public class QuizControllers {
 
 	// get active quizzes
 	@GetMapping("/active")
-	public List<Quiz> getActiveQuizzes() {
-		return this.quizService.getActiveQuizzes();
+	public ResponseEntity<?> getActiveQuizzes() {
+		List<Quiz> quizzes = this.quizService.getActiveQuizzes();
+		Stream<Quiz> filter = quizzes.stream().filter(q->q.getCategory()!=null);
+		
+		return ResponseEntity.ok(filter);
 	}
 
 	// get active quizzes
 	@GetMapping("/category/active/{cid}")
-	public List<Quiz> getActiveQuizzesOfCategory(@PathVariable("cid") Long cid) {
+	public ResponseEntity<?> getActiveQuizzesOfCategory(@PathVariable("cid") Long cid) {
 		Category category = new Category();
 		category.setCid(cid);
-		return this.quizService.getActiveQuizzesOfCategory(category);
+		List<Quiz> quizzes = this.quizService.getActiveQuizzesOfCategory(category);
+		Stream<Quiz> filter = quizzes.stream().filter(q->q.getCategory()!=null);
+		return ResponseEntity.ok(filter);
 	}
+	
+	// get quiz of particular group
+	@GetMapping("/group/{groupId}") 
+	public List<Quiz> getQuizzesOfGroup(@PathVariable("groupId") Long groupId) {
+		Group group = new Group();
+		group.setGroupId(groupId);
+		return this.quizService.getQuizzesOfGroup(group);
+	}
+	
+//	get quizzes of all categories
+	@GetMapping("/group")
+	public ResponseEntity<?> getQuizzesOfOnlyGroup() {
+//		return ResponseEntity.ok(this.quizService.getQuizzes());
+		Set<Quiz> quizzes = this.quizService.getQuizzes();
+		Stream<Quiz> filter = quizzes.stream().filter(q->q.getCategory()!=null);
+		
+		return ResponseEntity.ok(filter);
+		
+	}
+	
+	// get active quizzes of all group
+	@GetMapping("/group/active")
+	public ResponseEntity<?> getActiveQuizzesOfGroup() {
+		List<Quiz> quizzes = this.quizService.getActiveQuizzes();
+		Stream<Quiz> filter = quizzes.stream().filter(q->q.getGroups()!=null);
+		
+		return ResponseEntity.ok(filter);
+	}
+	
+	// get active quizzes of particular group
+	@GetMapping("/group/active/{groupId}")
+	public ResponseEntity<?> getActiveQuizzesOfGroup(@PathVariable("groupId") Long groupId) {
+		Group group = new Group();
+		group.setGroupId(groupId);
+		
+		List<Quiz> quizzes = this.quizService.getActiveQuizzesOfGroup(group);
+		Stream<Quiz> filter = quizzes.stream().filter(q->q.getGroups()!=null);
+		return ResponseEntity.ok(filter);
+	}
+	
 }

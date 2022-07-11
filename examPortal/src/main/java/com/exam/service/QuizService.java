@@ -6,6 +6,7 @@ import java.util.Set;
 import org.springframework.http.ResponseEntity;
 
 import com.exam.entities.Category;
+import com.exam.entities.Group;
 import com.exam.entities.Quiz;
 
 public interface QuizService {
@@ -19,6 +20,8 @@ public interface QuizService {
 	
 	public List<Quiz> getActiveQuizzes();
 	public List<Quiz> getActiveQuizzesOfCategory(Category category);
+	public List<Quiz> getActiveQuizzesOfGroup(Group group);
+	public List<Quiz> getQuizzesOfGroup(Group group);
 	
 
 }

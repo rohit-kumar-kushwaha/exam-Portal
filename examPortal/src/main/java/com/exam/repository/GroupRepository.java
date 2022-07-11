@@ -15,5 +15,9 @@ public interface GroupRepository extends JpaRepository<Group, Long>{
 	public Group findByGroupName(String groupName);
 	@Query(value = "Select g from Group g join g.userGroup ug join ug.user u where u.id=:Id")
 	public Set<Group> findByGroupByUserId(@Param("Id") Long Id);
+	
+	@Query(value = "Select u from User u join u.userGroup ug join ug.group g where g.groupId=:gid")
+//	@Query(value = "Select g from Group g join g.userGroup ug join ug.user u where g.groupId=:gid")
+	public Set<User> findByUserByGroupId(@Param("gid") Long gid);
 
 }

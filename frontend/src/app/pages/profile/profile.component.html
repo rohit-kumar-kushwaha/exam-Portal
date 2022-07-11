@@ -6,10 +6,14 @@
         <div class="bootstrap-wrapper">
             <div class="container">
                 <div class="container text-center">
-                    <img 
+                    <img *ngIf="user.imgUrl==null" 
                         src="https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg" 
                         alt=""
                         class="profile-image">
+
+                        <img *ngIf="user.imgUrl!=null"
+                            [src]="'../../../assets/'+user.imgUrl "
+                            alt="" class="profile-image">
 
                     <h1 class="mt20">{{user.firstName}} {{user.lastName}} </h1>
                 </div>
@@ -47,7 +51,7 @@
                                 <td>{{user.course}}</td>
                             </tr>
                             <tr>
-                                <td>Course</td>
+                                <td>Session</td>
                                 <td>{{user.session}}</td>
                             </tr>
                             <tr>

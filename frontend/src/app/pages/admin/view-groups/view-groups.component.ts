@@ -15,6 +15,7 @@ export class ViewGroupsComponent implements OnInit {
       groupName: '',
       description: '',
       createdBy: '',
+      secretKey: '',
     }
   ]
 
@@ -31,6 +32,29 @@ export class ViewGroupsComponent implements OnInit {
         Swal.fire("Error !!","Error in loading data","error");
       }
     )
+  }
+
+  deleteQuiz(gid:any) {
+    //alert(qid);
+    Swal.fire({
+      icon: 'info',
+      title: "Are you sure ?",
+      confirmButtonText: 'Delete',
+      showCancelButton: true
+    }).then((result)=>{
+      if(result.isConfirmed) {
+        // delete
+        this._group.deleteGroup(gid).subscribe(
+          (data:any)=>{
+            this.groups = this.groups.filter((g)=>g.groupId != gid);
+            Swal.fire("Success","Quiz Deleted","success");
+          },
+          (error)=>{
+            Swal.fire('Error !','Error in deleting quiz !', 'error');
+          }
+        )
+      }
+    });
   }
 
 }

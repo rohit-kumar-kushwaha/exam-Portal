@@ -45,11 +45,11 @@ public class User implements UserDetails {
 	
 	
 	//user have many roles
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
 	@JsonIgnore
 	private Set<UserGroup> userGroup = new HashSet<>();
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "users")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "users")
 	private Set<Marks> marks = new HashSet<Marks>();
 	
 	public String getCourse() {

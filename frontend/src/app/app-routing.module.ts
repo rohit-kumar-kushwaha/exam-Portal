@@ -4,12 +4,15 @@ import { combineLatestInit } from 'rxjs/internal/observable/combineLatest';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { AddGroupComponent } from './pages/admin/add-group/add-group.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { AddQuizGroupComponent } from './pages/admin/add-quiz-group/add-quiz-group.component';
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import { AttemptedQuizComponent } from './pages/admin/attempted-quiz/attempted-quiz.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { UpdateGroupQuizComponent } from './pages/admin/update-group-quiz/update-group-quiz.component';
 import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { ViewGroupQuizComponent } from './pages/admin/view-group-quiz/view-group-quiz.component';
 import { ViewGroupsComponent } from './pages/admin/view-groups/view-groups.component';
 import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
@@ -26,6 +29,7 @@ import { MarksDetailsComponent } from './pages/user/marks-details/marks-details.
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { WelcomUserComponent } from './pages/user/welcom-user/welcom-user.component';
+import { ViewGroupMembersComponent } from './pages/view-group-members/view-group-members.component';
 import { AdminGuard } from './services/admin.guard';
 import { NormalGuard } from './services/normal.guard';
 
@@ -119,6 +123,26 @@ const routes: Routes = [
       {
         path: 'add-group',
         component: AddGroupComponent,
+
+      },
+      {
+        path: 'add-quiz/:gid',
+        component: AddQuizGroupComponent,
+
+      },
+      {
+        path: 'add-group-quiz/:gid',
+        component: ViewGroupQuizComponent,
+
+      },
+      {
+        path: 'update-group-quiz/:qid',
+        component: UpdateGroupQuizComponent,
+
+      },
+      {
+        path: 'group-member/:gid',
+        component: ViewGroupMembersComponent,
 
       },
 

@@ -51,6 +51,10 @@ import { UpdateProfileComponent } from './pages/update-profile/update-profile.co
 import { WelcomUserComponent } from './pages/user/welcom-user/welcom-user.component';
 import { MarksDetailsComponent } from './pages/user/marks-details/marks-details.component';
 import { AttemptedQuizComponent } from './pages/admin/attempted-quiz/attempted-quiz.component';
+import { AddQuizGroupComponent } from './pages/admin/add-quiz-group/add-quiz-group.component';
+import { ViewGroupQuizComponent } from './pages/admin/view-group-quiz/view-group-quiz.component';
+import { ViewGroupMembersComponent } from './pages/view-group-members/view-group-members.component';
+import { UpdateGroupQuizComponent } from './pages/admin/update-group-quiz/update-group-quiz.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +87,11 @@ import { AttemptedQuizComponent } from './pages/admin/attempted-quiz/attempted-q
     UpdateProfileComponent,
     WelcomUserComponent,
     MarksDetailsComponent,
-    AttemptedQuizComponent
+    AttemptedQuizComponent,
+    AddQuizGroupComponent,
+    ViewGroupQuizComponent,
+    ViewGroupMembersComponent,
+    UpdateGroupQuizComponent
   ],
   imports: [
     BrowserModule,
