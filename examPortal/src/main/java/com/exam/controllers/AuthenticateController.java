@@ -40,7 +40,7 @@ public class AuthenticateController {
 	//generate token
 	@PostMapping("/generate-token")
 	public ResponseEntity<?> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception {
-		
+		System.out.println("START generate-token");
 		try {
 			
 			authenticate(jwtRequest.getUsername(), jwtRequest.getPassword());
@@ -78,6 +78,9 @@ public class AuthenticateController {
 	// returns the details of current login user
 	@GetMapping("/current-user")
 	public User getCurrentUser(Principal principal) {
+		System.out.println("Current user method");
+		User loadUserByUsername =(User) this.userDetailsServiceImpl.loadUserByUsername(principal.getName());
+		System.out.println("Current-User : "+loadUserByUsername);
 		return (User) this.userDetailsServiceImpl.loadUserByUsername(principal.getName());
 	}
 
