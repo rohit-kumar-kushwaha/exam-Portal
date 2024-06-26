@@ -1,0 +1,19 @@
+.example-card {
+    max-width: 100%;
+    /* margin-bottom: 8px; */
+  }
+
+  .my-profile-picture {
+	
+	width: 200px;
+	height: 200px;
+	/* object-fit: cover; */
+	border-radius: 50%;
+	/* border: 1px solid black; */
+    margin-left: 40%;
+	
+}
+
+.test{
+  height: 97%;
+}

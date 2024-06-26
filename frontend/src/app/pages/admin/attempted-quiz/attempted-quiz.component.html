@@ -1,0 +1,67 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <mat-card >
+            <h1><span><b>{{marksDetails[0].quizzes.title}} ( {{qid}} )</b> </span></h1>
+        </mat-card>
+        <div class="row mt20" *ngIf="marksDetails">
+            <div class="col-md-12 mb5" *ngFor="let m of marksDetails">
+                <mat-card>
+                    
+                    <mat-card-header>
+                        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                        <mat-card-title>
+                            {{m.users.firstName}} {{m.users.lastName}} ( {{m.users.username}} )
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                            <span>Attempted Date: <b>{{m.date}},  {{m.time}}</b></span>
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <!-- <mat-card-content>
+                        <p class="ml20 truncate">{{m.quizzes.description}}</p>
+                    </mat-card-content> -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-card-content>
+                                <p class="ml20 truncate"><b>Marks obtained: {{m.marks}}</b></p>
+                            </mat-card-content>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-card-content>
+                                <p class="ml20 truncate"><b>Max Marks: {{m.quizzes.maxMarks}}</b></p>
+                            </mat-card-content>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-card-content>
+                                <p class="ml20 truncate"><b>Question Attempted: {{m.attemptedQuestion}}</b></p>
+                            </mat-card-content>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-card-content>
+                                <p class="ml20 truncate"><b>Correct Answer: {{m.correctAnswer}}</b></p>
+                            </mat-card-content>
+                        </div>
+                    </div>
+                
+                    <!-- <mat-card-actions>
+                        <button mat-raised-button color="primary">View</button>
+                        <button [routerLink]="'/user-dashboard/instruction/'+q.qid" mat-raised-button color="accent">Start</button>
+                    </mat-card-actions> -->
+                   
+                    
+                </mat-card>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" *ngIf="marksDetails.length==0">
+                <mat-card>
+                    <mat-card-content>
+                        <h1 style="color: red;">No Quiz Attempted yet.</h1>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
